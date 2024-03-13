@@ -57,14 +57,21 @@ input {
 
 /* Gallery */
 .gallery {
-  margin-top: 24px;
+  margin-top: 65px;
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
   justify-content: center;
-  gap: 24px;
+  align-items: center;
+  row-gap: 24px;
+  column-gap: 24px;
 }
 
-.gallery img {
+.gallery-image {
   width: 360px;
-  height: 300px;
+  height: 200px;
+}
+
+.gallery-image:hover {
+  transform: scale(1.04);
 }

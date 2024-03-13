@@ -65,3 +65,83 @@ const images = [
     description: 'Lighthouse Coast Sea',
   },
 ];
+
+//*1
+const gallery = document.querySelector('.gallery');
+
+const createGallery = images => {
+  const galleryItems = images
+    .map(
+      image =>
+        `<li class="gallery-item">
+          <a class="gallery-link" href="${image.original}">
+            <img
+              class="gallery-image"
+              src="${image.preview}"
+              data-source="${image.original}"
+              alt="${image.description}"
+              width = "360"
+              height ="200"
+            />
+          </a>
+        </li>`
+    )
+    .join('');
+  gallery.insertAdjacentHTML('afterbegin', galleryItems);
+};
+
+createGallery(images);
+
+//*2
+// const gallery = document.querySelector('.gallery');
+
+// gallery.insertAdjacentHTML('beforeend', createGallery(images));
+// gallery.addEventListener('click', handleImageClick);
+
+// function createGallery(arr) {
+//   return arr
+//     .map(
+//       image =>
+//         `<li class="gallery-item">
+//           <a class="gallery-link" href="${image.original}">
+//             <img
+//               class="gallery-image"
+//               src="${image.preview}"
+//               data-source="${image.original}"
+//               alt="${image.description}"
+//             />
+//           </a>
+//         </li>
+//     `
+//     )
+//     .join('');
+// }
+
+// function handleImageClick(event) {
+//   if (event.target === event.currentTarget) {
+//     return;
+//   }
+// }
+
+//*3
+// const gallery = document.querySelector('.gallery');
+// const fragment = document.createDocumentFragment();
+
+// for (let i = 0; i < images.length; i++) {
+//   const image = images[i];
+//   const li = document.createElement('li');
+//   li.classList.add('gallery-item');
+//   const link = document.createElement('a');
+//   link.classList.add('gallery-link');
+//   link.href = image.original;
+//   const img = document.createElement('img');
+//   img.classList.add('gallery-image');
+//   img.src = image.preview;
+//   img.dataset.source = image.original;
+//   img.alt = image.description;
+//   li.append(link);
+//   link.append(img);
+//   fragment.append(li);
+// }
+
+// gallery.append(fragment);

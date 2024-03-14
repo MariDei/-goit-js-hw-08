@@ -79,6 +79,8 @@ function createGalleryMarkup(arr) {
               src="${image.preview}"
               data-source="${image.original}"
               alt="${image.description}"
+              width = "360"
+              height = "200"
             />
           </a>
         </li>
@@ -102,6 +104,8 @@ function handleImageClick(event) {
         class="modal-img"
         src="${event.target.dataset.source}" 
         alt="${event.target.alt}"
+        width = "1112"
+        height = "640"
       />
     </div>
   `);

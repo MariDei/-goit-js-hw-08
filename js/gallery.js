@@ -67,39 +67,10 @@ const images = [
 ];
 
 //*1
-const gallery = document.querySelector('.gallery');
-
-const createGallery = images => {
-  const galleryItems = images
-    .map(
-      image =>
-        `<li class="gallery-item">
-          <a class="gallery-link" href="${image.original}">
-            <img
-              class="gallery-image"
-              src="${image.preview}"
-              data-source="${image.original}"
-              alt="${image.description}"
-              width = "360"
-              height ="200"
-            />
-          </a>
-        </li>`
-    )
-    .join('');
-  gallery.insertAdjacentHTML('afterbegin', galleryItems);
-};
-
-createGallery(images);
-
-//*2
 // const gallery = document.querySelector('.gallery');
 
-// gallery.insertAdjacentHTML('beforeend', createGallery(images));
-// gallery.addEventListener('click', handleImageClick);
-
-// function createGallery(arr) {
-//   return arr
+// const createGallery = images => {
+//   const galleryItems = images
 //     .map(
 //       image =>
 //         `<li class="gallery-item">
@@ -109,19 +80,49 @@ createGallery(images);
 //               src="${image.preview}"
 //               data-source="${image.original}"
 //               alt="${image.description}"
+//               width = "360"
+//               height ="200"
 //             />
 //           </a>
-//         </li>
-//     `
+//         </li>`
 //     )
 //     .join('');
-// }
+//   gallery.insertAdjacentHTML('afterbegin', galleryItems);
+// };
 
-// function handleImageClick(event) {
-//   if (event.target === event.currentTarget) {
-//     return;
-//   }
-// }
+// createGallery(images);
+
+//*2
+const gallery = document.querySelector('.gallery');
+
+gallery.insertAdjacentHTML('beforeend', createGallery(images));
+gallery.addEventListener('click', handleImageClick);
+
+function createGallery(arr) {
+  return arr
+    .map(
+      image =>
+        `<li class="gallery-item">
+          <a class="gallery-link" href="${image.original}">
+            <img
+              class="gallery-image"
+              src="${image.preview}"
+              data-source="${image.original}"
+              alt="${image.description}"
+            />
+          </a>
+        </li>
+    `
+    )
+    .join('');
+}
+
+function handleImageClick(event) {
+  event.preventDefault();
+  if (event.target === event.currentTarget) {
+    return;
+  }
+}
 
 //*3
 // const gallery = document.querySelector('.gallery');

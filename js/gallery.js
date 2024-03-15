@@ -99,7 +99,6 @@ function handleImageClick(event) {
   }
 
   const instance = basicLightbox.create(`
-    <div class="modal">
       <img 
         class="modal-img"
         src="${event.target.dataset.source}" 
@@ -107,7 +106,6 @@ function handleImageClick(event) {
         width = "1112"
         height = "640"
       />
-    </div>
   `);
 
   instance.show();
